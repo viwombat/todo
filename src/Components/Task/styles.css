@@ -1,0 +1,55 @@
+.done {
+  text-decoration: line-through;
+}
+
+.checkbox {
+  margin-right: 15px;
+}
+
+.task {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: .5rem 1rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-bottom: .5rem;
+}
+  
+.deleteBtn {
+	cursor: pointer;
+	background-color: brown;
+	border-radius: 50%;
+	color: #fff;
+	border: none;
+}
+
+.arrows {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	margin-right: 10px;
+} 
+
+.arrowBtn {
+	background-color: #282c34;
+	border: none;
+}
+
+.arrow {
+	cursor: pointer;
+	border: solid  #fff;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+}
+
+.up {
+	transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+}
+
+.down {
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
