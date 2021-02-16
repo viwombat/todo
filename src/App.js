@@ -1,4 +1,5 @@
 import React from 'react'
+// import { ContextProvider } from './context/TodoContext'
 import Input from './Components/Input/'
 import Task from './Components/Task/'
 import './App.css'
@@ -44,13 +45,6 @@ class App extends React.Component {
     this.setState({ tasks: newTasks })
   }
 
-  deleteTask = (id) => () => {
-    const { tasks } = this.state
-    this.setState({
-      tasks: [...tasks].filter(task => task.id !== id)
-    })
-  }
-
   replaceUp = (index) => () => {
     if (index > 0) {
       this.setState(() => {
@@ -81,9 +75,15 @@ class App extends React.Component {
     }
   }
 
+  deleteTask = (id) => () => {
+    const { tasks } = this.state
+    this.setState({
+      tasks: [...tasks].filter(task => task.id !== id)
+    })
+  }
+
   render() {
     const { tasks } = this.state
-    console.log('sdf', tasks)
     return(
       <div className="body">
         <div className="header">

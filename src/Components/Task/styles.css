@@ -6,24 +6,28 @@
   margin-right: 15px;
 }
 
+#title {
+	border: none;
+	background-color: #282c34;
+	color: #ccc;
+	outline: none;
+	/* height: 100%; */
+	vertical-align: bottom;
+}
+
 .task {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	background-color: #282c34;
 	padding: .5rem 1rem;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	margin-bottom: .5rem;
+	max-width: 70vw;
+	box-shadow: 0px 13px 30px -15px #000000;
 }
   
-.deleteBtn {
-	cursor: pointer;
-	background-color: brown;
-	border-radius: 50%;
-	color: #fff;
-	border: none;
-}
-
 .arrows {
 	display: flex;
 	flex-direction: column;
@@ -52,4 +56,20 @@
 .down {
 	transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
+}
+
+.editBtn {
+	margin-right: 10px;
+	background: #37496e;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+.deleteBtn {
+	cursor: pointer;
+	background-color: brown;
+	border-radius: 50%;
+	color: #fff;
+	border: none;
 }
