@@ -1,7 +1,7 @@
 import React from 'react'
-// import { ContextProvider } from './context/TodoContext'
-import Input from './Components/Input/'
-import Task from './Components/Task/'
+import Input from './Components/Input'
+import Task from './Components/Task'
+import Title from './Components/Title'
 import './App.css'
 
 class App extends React.Component {
@@ -47,8 +47,8 @@ class App extends React.Component {
 
   replaceUp = (index) => () => {
     if (index > 0) {
-      this.setState(() => {
-        let { tasks } = this.state
+      this.setState((state) => {
+        let { tasks } = state
         
         let data = [...tasks]
         let temp = data[index - 1]
@@ -62,8 +62,8 @@ class App extends React.Component {
 
   replaceDown = (index) => () => {
     if (index < this.state.tasks.length-1) {
-      this.setState(() => {
-        let { tasks } = this.state;
+      this.setState((state) => {
+        let { tasks } = state;
         
         let data = [...tasks];
         let temp = data[index + 1];
@@ -87,9 +87,8 @@ class App extends React.Component {
     return(
       <div className="body">
         <div className="header">
-          <h1>Todo List</h1>
-          <Input addTask={this.addNewTask}/>
-          
+          <Title />
+          <Input addTask={this.addNewTask}/> 
           <div>
             Active tasks: {this.showActiveTasks()}
           </div>  

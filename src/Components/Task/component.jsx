@@ -11,6 +11,7 @@ function Task({
 
 	const [inputValue, setInputValue] = useState(task.title)
 	const [readOnlyInput, setReadOnlyInput] = useState(true)
+	const [edit, setEdit] = useState(true)
 
 	const handleEditInput = useCallback((event) => {
 		setInputValue(event.target.value)
@@ -22,34 +23,60 @@ function Task({
 		textAreaFocus.current.focus();
 	}
 
+	const handleClick = () => {
+		setEdit(!edit);
+	}
+
 	return (
-		<span className="task">
-			<input
-				className='checkbox'
-				type="checkbox"
-				checked={task.done}
-				onChange={onToggle} 
-			/>
+		<div className='task'>
+			<div className='leftSide'>
+				<input
+					className='checkbox'
+					type='checkbox'
+					checked={task.done}
+					onChange={onToggle} 
+				/>
 
-			<textarea   
-				id="title" 
-				className={task.done ? 'done' : ''} 
-				value={inputValue} readOnly={readOnlyInput} 
-				onChange={handleEditInput} 
-				ref={textAreaFocus}
-			></textarea>
-			
-			<div className="arrows">
-				<button className="arrowBtn" onClick={onUp}><i className="arrow up"></i></button>
-				<button className="arrowBtn" onClick={onDown}><i className="arrow down"></i></button>
+				{(edit) 
+				?	<div   
+						id='titleDiv' 
+						className={task.done ? 'done' : ''}  
+						readOnly={readOnlyInput} 
+						onChange={handleEditInput}
+						ref={textAreaFocus}
+					>{inputValue}</div>
+						
+				:	<textarea   
+						id='titleArea' 
+						className={task.done ? 'done' : ''} 
+						value={inputValue} 
+						readOnly={readOnlyInput} 
+						onChange={handleEditInput} 
+						ref={textAreaFocus}
+						
+					></textarea>
+				}
 			</div>
-			<button className="editBtn" onClick={() => {
-				setReadOnlyInput(!readOnlyInput)
-				focusText()
-			}} >edit</button>
-			<button className="deleteBtn" onClick={onDelete}>&times;</button>
-		</span>
 
+			<div className='controls'>
+				<div className='arrows'>
+					<button className='arrowBtn' onClick={onUp}>
+						<i className='arrow up'></i>
+					</button>
+					<button className='arrowBtn' onClick={onDown}>
+						<i className='arrow down'></i>
+					</button>
+				</div>
+
+				<button className='editBtn' onClick={() => {
+					setReadOnlyInput(!readOnlyInput)
+					focusText()
+					handleClick()
+				}}>{edit ? 'edit' : 'save'}</button>
+				
+				<button className='deleteBtn' onClick={onDelete}>&times;</button>
+			</div>
+		</div>
 	)
 }
 

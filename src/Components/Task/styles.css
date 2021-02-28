@@ -6,13 +6,35 @@
   margin-right: 15px;
 }
 
-#title {
+#titleDiv {	
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	background-color: #282c34;
+	color: #ccc;
+	font-size: 30px;
+	margin-left: 0px;
+	font-family: Verdana, sans-serif;
+	max-width: 60vw;
+}
+
+#titleArea {
 	border: none;
 	background-color: #282c34;
 	color: #ccc;
 	outline: none;
-	/* height: 100%; */
 	vertical-align: bottom;
+	font-size: 30px;
+	font-family: Verdana, sans-serif;	
+}
+
+.leftSide {
+	display: flex;
+	align-items: center;
+}
+
+.controls {
+	display: -webkit-box;
+	flex-direction: row;
 }
 
 .task {
@@ -24,6 +46,8 @@
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	margin-bottom: .5rem;
+	min-width: 50vw;
+	min-height: 39px;
 	max-width: 70vw;
 	box-shadow: 0px 13px 30px -15px #000000;
 }
